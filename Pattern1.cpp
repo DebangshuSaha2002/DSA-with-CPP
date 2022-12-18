@@ -315,19 +315,297 @@ BCD
 ABCD
 */
 
+// int main()
+// {
+//     int n;
+//     cin>>n;
+//     for(int i=1;i<=n;i++)
+//     {
+//         char ch='A'+n-i;
+//         for(int j=1;j<=i;j++)
+//         {
+//             cout<<ch<<" ";
+//             ch=ch+1;
+//         }
+//         cout<<endl;
+//     }
+//     return 0;
+// }
+
+/*
+*****
+****
+***
+**
+*
+*/
+
+// int main()
+// {
+//     int n;
+//     cout<<"Enter the value for n: ";
+//     cin>>n;
+//     for(int i=5;i>=1;i--)
+//     {
+//         for(int j=1;j<=i;j++)
+//         {
+//             cout<<"*"<<" ";
+//         }
+//         cout<<endl;
+//     }
+//     return 0;
+// }
+
+/*
+    *
+   **
+  ***
+ ****
+*****
+
+*/
+
+// int main()
+// {
+//     int n;
+//     cout<<"Enter the value of n:";
+//     cin>>n;
+//     int i=1;
+//     for(int i=1;i<=n;i++)
+//     {
+//         int space=n-i;
+//         while(space)
+//         {
+//             cout<<" ";
+//             space=space-1;
+//         }
+//         for(int j=1;j<=i;j++)
+//         {
+//             cout<<"*";
+//         }
+//         cout<<endl;
+//     }
+//     return 0;
+// }
+
+/*
+
+****
+ ***
+  **
+   *
+
+*/
+
+// int main()
+// {
+//     int n;
+//     cout<<"Enter the value of n:";
+//     cin>>n;
+
+//     for(int i=n;i>=1;i--)
+//     {
+
+//         int space=n-i;
+//         while(space)
+//         {
+//             cout<<" ";
+//             space=space-1;
+//         }
+//         for(int j=1;j<=i;j++)
+//         {
+//             cout<<"*";
+//         }
+//         cout<<endl;
+//     }
+//     return 0;
+// }
+
+/*
+
+1111
+ 222
+  33
+   4
+*/
+
+// int main()
+// {
+//     int n;
+//     cout<<"Enter the value of n";
+//     cin>>n;
+//     int k=1;
+//     for(int i=n;i>=1;i--)
+//     {
+//         int space=n-i;
+//         while(space)
+//         {
+//             cout<<" ";
+//             space=space-1;
+//         }
+//         for(int j=1;j<=i;j++)
+//         {
+//             cout<<k;
+//         }
+//         k=k+1;
+//         cout<<endl;
+//     }
+//     return 0;
+// }
+
+/*
+    1
+   22
+  333
+ 4444
+55555
+
+*/
+
+// int main()
+// {
+//     int n;
+//     cout<<"Enter the value of n:";
+//     cin>>n;
+//     int k=1;
+//     for(int i=1;i<=n;i++)
+//     {
+//         int space=n-i;
+//         while(space)
+//         {
+//             cout<<" ";
+//             space=space-1;
+//         }
+//         for(int j=1;j<=i;j++)
+//         {
+//             cout<<k;
+//         }
+//         k=k+1;
+//         cout<<endl;
+//     }
+//     return 0;
+// }
+
+/*
+1234
+ 234
+  34
+   4
+*/
+
+// int main()
+// {
+//     int n;
+//     cout<<"Enter the value of n:";
+//     cin>>n;
+//     for(int i=1;i<=n;i++)
+//     {
+//         for(int space =0;space<i;space++)
+//         {
+//             cout<<" ";
+//         }
+//         for(int j=i;j<=n;j++)
+//         {
+//             cout<<j;
+//         }
+//         cout<<endl;
+//     }
+//     return 0;
+// }
+
+/*
+
+      1
+    2 3
+  4 5 6
+7 8 9 10
+
+*/
+
+// int main()
+// {
+//     int n;
+//     cout<<"Enter the value for n: ";
+//     cin>>n;
+
+//     int k=1;
+//     for(int i=1;i<=n;i++)
+//     {
+//         int space=n-i;
+//         while(space)
+//         {
+//             cout<<" ";
+//             space=space-1;
+//         }
+//         for(int j=1;j<=i;j++)
+//         {
+//             cout<<k;
+//             k++;
+//         }
+//         cout<<endl;
+//     }
+//     return 0;
+// }
+
+/*
+
+    1
+   121
+  12321
+ 1234321
+123454321
+
+*/
+
+// int main()
+// {
+//     int n;
+//     cout<<"Enter the value of n:";
+//     cin>>n;
+//     for(int i=1;i<=n;i++)
+//     {
+//         int space=n-i;
+//         while(space)
+//         {
+//             cout<<" ";
+//             space=space-1;
+//         }
+//         for(int j=1;j<=i;j++)
+//         {
+//             cout<<j;
+//         }
+//         for(int k=i-1;k>=1;k--)
+//         {
+//             cout<<k;
+//         }
+//         cout<<endl;
+//     }
+//     return 0;
+// }
+
 int main()
 {
     int n;
+    cout<<"Enter the value of n:";
     cin>>n;
-    int k=-1;
-    char ch='A'+n-1;
-    for(int i=0;i<n;i++)
+    for(int i=5;i>=1;i--)
     {
-        k++;
-        for(int j=0;j<=i;j++)
+        for(int j=1;j<=i;j++)
         {
-            char ch1=ch-k-j;
-            cout<<ch<<" ";
+            cout<<j;
+        }
+        int o=1;
+        for(int l=2;l<=8;l=2*o)
+        {
+            // o++;
+            // for(int h=l;h<=8;h=++)
+            // {
+                cout<<"*";
+            // }
+        }
+        for(int k=i;k>=1;k--)
+        {
+            cout<<k;
         }
         cout<<endl;
     }
