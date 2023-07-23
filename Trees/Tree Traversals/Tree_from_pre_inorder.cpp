@@ -27,3 +27,45 @@
 // constructed. You are not required to print anything and a new line
 // is added automatically (The post order of the returned tree is 
 // printed by the driver's code.)
+
+/*Complete the code here.
+Node is as follows:
+struct Node
+{
+  int data;
+  Node* left;
+  Node* right;
+};
+*/
+// class Solution{
+//     public:
+//     int findPos(int in[],int n,int element,int inStart,int inEnd){
+//         for(int i=inStart;i<=inEnd;i++){
+//             if(in[i]==element){
+//                 return i;
+//             }
+//         }
+//         return -1;
+//     }
+    
+//     Node * solve(int in[],int pre[],int &index,int inStart,int inEnd,int n){
+//         if(inStart>inEnd || index>=n){
+//             return NULL;
+//         }
+//         int element=pre[index++];
+//         Node * root=new Node(element);
+//         int pos=findPos(in,n,element,inStart,inEnd);
+        
+//         root->left=solve(in,pre,index,inStart,pos-1,n);
+//         root->right=solve(in,pre,index,pos+1,inEnd,n);
+        
+//         return root;
+//     }
+//     Node* buildTree(int in[],int pre[], int n)
+//     {
+//         int preOrderStart=0;
+//         map<int,int> nodeToIndex;
+//         Node * ans=solve(in,pre,preOrderStart,0,n-1,n);
+//         return ans;
+//     }
+// };
