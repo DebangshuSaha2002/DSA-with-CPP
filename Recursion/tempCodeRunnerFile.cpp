@@ -1,20 +1,42 @@
+//check whether a num is prime or not using recursion
+
 #include<iostream>
-#include<algorithm>
 using namespace std;
 
-void solve(string &name){
-    int start=0;
-    int end=8;
-    while(start<end){
-        swap(name[start++],name[end--]);
+bool solve(int n){
+    int count=0;
+    for(int i=1;i<=n;i++){
+        if(n%i==0){
+            count+=1;
+        }
+    }
+    if(count==2){
+        return true;
+    }
+    else{
+        return false;
     }
 }
 
-int main(){
-    string name="Debangshu";
-    solve(name);
-    for(int i=0;i<9;i++){
-        cout<<name[i]<<" ";
+bool solveit(int n,int count,int i){
+    if(count>=1)
+    {
+        return false;
     }
-    return 0;
+    bool ans=true;
+    if(i<n && n%i==0){
+        ans=solveit(n,count+1,i+1);
+    }
+    else if(i<n){
+        ans=solveit(n,count,i+1);
+    }
+    return ans;
+}
+
+int main(){
+    int n=20213813;
+    
+    // bool ans = solve(n);
+    bool ans=solveit(n,0,2);
+    cout<<"Is prime : "<< ans<<endl;
 }
