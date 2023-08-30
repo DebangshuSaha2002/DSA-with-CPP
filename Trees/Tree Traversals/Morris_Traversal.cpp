@@ -34,6 +34,7 @@ void MorrisTraversal(Node* root){
             }
             else{
                 cout<<curr->data<<" ";
+                pre->right=NULL;
                 curr=curr->right;
             }
         }
