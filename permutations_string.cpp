@@ -5,7 +5,7 @@
 
 using namespace std;
 
-void solve(vector<char>nums, int index, vector<vector<char>>& ans)
+void solve(vector<char> nums, int index, vector<vector<char> >& ans)
 {
     if(index>=nums.size())
     {
@@ -29,7 +29,7 @@ int main()
     nums.push_back('c');
 
     int index=0;
-    vector<vector<char>>ans;
+    vector<vector<char> >ans;
     solve(nums,index,ans);
 
     //sorting in lexicographical order
