@@ -3,6 +3,7 @@
     "*.jsx": "javascriptreact",
     "unordered_map": "cpp",
     "iostream": "cpp",
-    "vector": "cpp"
+    "vector": "cpp",
+    "ostream": "cpp"
   }
 }
