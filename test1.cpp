@@ -1,56 +1,52 @@
-#include <iostream>
-#include <unordered_map>
-#include <sstream>
-
+#include<iostream>
+#include<vector>
+#include<map>
+#include<string>
 using namespace std;
 
-string convertString(string inputString) {
-  // Create a dictionary mapping words to their corresponding digits
-  unordered_map<string, string> wordToDigitMap;
+string ConvertToNum(string str){
+  int n=1;
+  map<string,string> digits;
 
-  pair<string, string> entries[12] = {
-    pair<string, string>("one", "1"),
-    pair<string, string>("two", "2"),
-    pair<string, string>("three", "3"),
-    pair<string, string>("four", "4"),
-    pair<string, string>("five", "5"),
-    pair<string, string>("six", "6"),
-    pair<string, string>("seven", "7"),
-    pair<string, string>("eight", "8"),
-    pair<string, string>("nine", "9"),
-    pair<string, string>("zero", "0"),
-    pair<string, string>("double", "2"),
-    pair<string, string>("triple", "3")
-  };
+  digits["zero"]="0";
+  digits["one"]="1";
+  digits["two"]="2";
+  digits["three"]="3";
+  digits["four"]="4";
+  digits["five"]="5";
+  digits["six"]="6";
+  digits["seven"]="7";
+  digits["eight"]="8";
+  digits["nine"]="9";
 
-  for (int i = 0; i < 12; i++) { // Size of the array is 12
-    wordToDigitMap.insert(entries[i]);
-  }
+  map<string,int> rep;
+  rep["double"]=2;
+  rep["triple"]=3;
+  string resnum="";
+  for(int i=0;i<str.length();i++){
+    string word="";
+    while(i<str.length() && str[i]!=' '){
+      word+=str[i];
+      i++;
+    } 
 
-  string outputString = "";
-
-  // Split the input string into words
-  stringstream ss(inputString);
-  string word;
-  while (ss >> word) {
-    if (wordToDigitMap.find(word) != wordToDigitMap.end()) {
-      // If the word is in the dictionary, append its corresponding digit
-      outputString += wordToDigitMap[word];
-    } else {
-      // If the word is not in the dictionary, append the word itself
-      outputString += word;
+    if(rep.find(word)!=rep.end()){
+      n=n*rep[word];
+    }else{
+      resnum+=digits[word];
+      for(int j=1;j<n;j++){
+        resnum+=digits[word];
+      }
+      n=1;
     }
   }
-
-  return outputString;
+  return resnum;
 }
 
-int main() {
-  string inputString = "one two three double five eight triple three";
-
-  string outputString = convertString(inputString);
-
-  cout << outputString << endl;
-
+int main(){
+  string str;
+  cout<<"Enter the phone num is string:";
+  getline(cin,str);
+  cout<<ConvertToNum(str)<<endl;
   return 0;
 }
