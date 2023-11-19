@@ -4,6 +4,20 @@
     "unordered_map": "cpp",
     "iostream": "cpp",
     "vector": "cpp",
-    "ostream": "cpp"
-  }
+    "ostream": "cpp",
+    "queue": "cpp",
+    "__hash_table": "cpp",
+    "__split_buffer": "cpp",
+    "__tree": "cpp",
+    "array": "cpp",
+    "bitset": "cpp",
+    "deque": "cpp",
+    "initializer_list": "cpp",
+    "list": "cpp",
+    "map": "cpp",
+    "stack": "cpp",
+    "string": "cpp",
+    "string_view": "cpp"
+  },
+  "C_Cpp.default.cppStandard": "c++11"
 }

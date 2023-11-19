@@ -36,22 +36,35 @@ void insertatend(node * &head)
     }
 }
 
-node * middleofLinkedList(node * &head)
+node * reverse_k(node * &head,int k)
 {
-    node * slow=head;
-    node * fast=head;
-    while(fast!=NULL)
-    {
-        slow=slow->next;
-        if(fast->next->next!=NULL){
-            fast=fast->next->next;
-        // }else{
-            // fast=fast->next;
-        }
-    }
-    return slow;
-}
+    node * curr=head;
+    node * prev=NULL;
+    node * forward=NULL;
+    int count=0;
 
+    //base case
+    if(head==NULL){
+        return head;
+    }
+
+    //reverse first k nodes
+    while(curr!=NULL && count<k)
+    {
+        forward=curr->next;
+        curr->next=prev;
+        prev=curr;
+        curr=forward;
+        count++;
+    }
+
+    //rest of the nodes are reversed by recursion
+    if(curr!=NULL){
+        head->next=reverse_k(curr,k);
+    }
+
+    return prev;
+}
 void print(node * &head){
     node * temp=head;
     while(temp!=NULL)
@@ -66,7 +79,7 @@ int main()
     node * head=NULL;
     insertatend(head);
     print(head);
-    node * pointer=middleofLinkedList(head);
-    cout<<pointer->data<<endl;
+    node * prev=reverse_k(head,2);
+    print(prev);
     return 0;
 }

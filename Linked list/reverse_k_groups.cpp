@@ -59,8 +59,8 @@ node * reverse_k(node * &head,int k)
     }
 
     //rest of the nodes are reversed by recursion
-    if(forward!=NULL){
-        head->next=reverse_k(forward,k);
+    if(curr!=NULL){
+        head->next=reverse_k(curr,k);
     }
 
     return prev;

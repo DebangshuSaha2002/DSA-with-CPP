@@ -21,8 +21,6 @@ vector<int> bfs(vector<int> adjList[],int V,int &count){
             }
         }
     }
-
-    //Now I have the answer in my ans vector;
     return ans;
 }
 
@@ -60,3 +58,4 @@ int main(){
     cout<<"\nObserved number of steps : "<<count<<endl;
     return 0;
 }
+

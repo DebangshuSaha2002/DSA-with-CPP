@@ -1,28 +1,58 @@
-#include <vector>
 #include<iostream>
 using namespace std;
 
-long long minimumSplits(vector<int> arr) {
-    long long totalSplits = 0; 
-    long long prevVal = arr.back(); 
-
-    for (int idx = arr.size() - 2; idx >= 0; idx--) { 
-        totalSplits += (arr[idx] - 1) / prevVal; 
-        long long numGroups = ((arr[idx] - 1) / prevVal + 1); 
-        prevVal = arr[idx] / numGroups; 
-    } 
-
-    
-    return totalSplits;
+int partition(int *arr,int s,int e)
+{
+    int c=0;
+    int pivot=arr[s];
+    for(int i=s+1;i<=e;i++)
+    {
+        if(arr[i]<=pivot)
+        {
+            c++;
+        }
+    }
+    int pivotindex=s+c;
+    swap(arr[s],arr[pivotindex]);
+    int i=s;
+    int j=e;
+    while(i<pivotindex && j>pivotindex)
+    {
+        while(arr[i]<=pivot)
+        {
+            i++;
+        }
+        while(arr[j]>pivot)
+        {
+            j--;
+        }
+        if(j>pivotindex && i<pivotindex)
+        {
+            swap(arr[i++],arr[j--]);
+        }
+    }
+    return pivotindex;
 }
 
-int main(){
-    vector<int> arr;
-    arr.push_back(3);
-    arr.push_back(7);
-    arr.push_back(41);
-    arr.push_back(8);
-    // arr.push_back(7);
-    // arr.push_back(9);
-    cout<<minimumSplits(arr)<<endl;
+void quicksort(int *arr, int s,int e)
+{
+    if(s>=e)
+    {
+        return;
+    }
+    int p=partition(arr,s,e);
+    quicksort(arr,s,p-1);
+    quicksort(arr,p+1,e);
+}
+
+int main()
+{
+    int arr[5]={2,4,1,6,9};
+    quicksort(arr,0,4);
+
+    for(int i=0;i<=4;i++)
+    {
+        cout<<arr[i]<<" ";
+    }
+    return 0;
 }

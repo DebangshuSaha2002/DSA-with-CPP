@@ -38,7 +38,7 @@ int main(){
     adj[5].push_back(1);
     adj[5].push_back(2);
     adj[5].push_back(4);
-    
+
     vector<int> store;
     vector<int> ans;
     vector<int> visited(V,0);

@@ -27,8 +27,8 @@ int LCSlengthMem(string str1,string str2,int i,int j,vector<vector<int> > &dp){
 }
 
 int main(){
-    string str1="abcde";
-    string str2="ace";
+    string str1="0000110111100100001221000122001";
+    string str2="20000221222012211210";
     vector<vector<int> > dp(str1.size(),vector<int>(str2.size(),-1));
     cout<<"Length of the LCS is :"<<LCSlengthMem(str1,str2,0,0,dp)<<endl;
     return 0;
