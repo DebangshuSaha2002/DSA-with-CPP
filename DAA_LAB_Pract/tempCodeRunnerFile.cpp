@@ -1,55 +1,54 @@
 #include <iostream>
 #include <vector>
-#include <stack>
 using namespace std;
 
-void dfs(vector<char> adj[], int size, vector<int>& vis, char start) {
-    stack<char> s;
-    s.push(start);
-    vis[start - 'a'] = 1;
-    
-    while (!s.empty()) {
-        char top = s.top();
-        s.pop();
-        cout << top << " ";
-        
-        for (auto it : adj[top - 'a']) {
-            if (!vis[it - 'a']) {
-                vis[it - 'a'] = 1;
-                s.push(it);
+vector<int> bellmanFord(int V, vector<vector<int>>& edges, int S) {
+    vector<int> dist(V, 1e8); // Initialize distances with a large value
+    dist[S] = 0; // Distance from source to itself is 0
+
+    // Relax V-1 times
+    for (int i = 0; i < V - 1; i++) {
+        for (auto val : edges) {
+            int u = val[0];
+            int v = val[1];
+            int wt = val[2];
+
+            if (dist[u] != 1e8 && dist[u] + wt < dist[v]) {
+                dist[v] = dist[u] + wt;
             }
         }
     }
-}
 
-void dfsTraversal(vector<char> adj[], int size) {
-    vector<int> vis(size, 0);
-    int count = 0;
-    
-    for (int i = 0; i < size; i++) {
-        if (!vis[i]) {
-            count++;
-            dfs(adj, size, vis, i + 'a');
+    // Check for negative cycles
+    for (auto val : edges) {
+        int u = val[0];
+        int v = val[1];
+        int wt = val[2];
+
+        if (dist[u] != 1e8 && dist[u] + wt < dist[v]) {
+            // Negative cycle detected
+            return {-1};
         }
     }
-    
-    cout << "\nNum of islands: " << count << endl;
+
+    return dist;
 }
 
 int main() {
-    vector<char> adj[7];
-    
-    adj['a' - 'a'].push_back('b');
-    adj['a' - 'a'].push_back('d');
-    adj['b' - 'a'].push_back('e');
-    adj['c' - 'a'].push_back('e');
-    adj['c' - 'a'].push_back('f');
-    adj['d' - 'a'].push_back('b');
-    adj['e' - 'a'].push_back('d');
-    adj['f' - 'a'].push_back('f');
-    
-    int size = sizeof(adj) / sizeof(adj[0]);
-    dfsTraversal(adj, size);
-    
+    int V = 5; // Number of vertices
+    vector<vector<int>> edges = {{0, 1, -1}, {0, 2, 4}, {1, 2, 3}, {1, 3, 2}, {1, 4, 2}, {3, 2, 5}, {3, 1, 1}, {4, 3, -3}};
+    int S = 0; // Source vertex
+
+    vector<int> result = bellmanFord(V, edges, S);
+
+    if (result[0] == -1) {
+        cout << "Negative cycle detected. No shortest path exists.";
+    } else {
+        cout << "Shortest distances from source " << S << ":" << endl;
+        for (int i = 0; i < V; i++) {
+            cout << "Vertex " << i << ": " << result[i] << endl;
+        }
+    }
+
     return 0;
 }

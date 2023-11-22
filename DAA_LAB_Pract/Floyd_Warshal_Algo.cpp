@@ -2,7 +2,7 @@
 #include <vector>
 #include<limits>
 using namespace std;
-
+#define INF 99999
 vector<vector<int>> floydWarshall(int V, vector<vector<int>>& graph) {
     vector<vector<int>> dist(V, vector<int>(V, 1e8));
 
@@ -17,7 +17,7 @@ vector<vector<int>> floydWarshall(int V, vector<vector<int>>& graph) {
     for (int k = 0; k < V; k++) {
         for (int i = 0; i < V; i++) {
             for (int j = 0; j < V; j++) {
-                if (dist[i][k] != 1e8 && dist[k][j] != 1e8 && dist[i][k] + dist[k][j] < dist[i][j]) {
+                if (dist[i][k] != INF && dist[k][j] != INF && dist[i][k] + dist[k][j] < dist[i][j]) {
                     dist[i][j] = dist[i][k] + dist[k][j];
                 }
             }
@@ -29,11 +29,11 @@ vector<vector<int>> floydWarshall(int V, vector<vector<int>>& graph) {
 
 int main() {
     int V = 4; // Number of vertices
-    vector<vector<int>> graph = {
-        {0, 5, 1e8, 2},
-        {1e8, 0, 3, 1e8},
-        {4, 1e8, 0, 1e8},
-        {1e8, 1e8, 1e8, 0}
+    vector<vector<int> > graph = {
+        {0, 5, INF, 10},
+        {INF, 0, 3, INF},
+        {INF, INF, 0, 1},
+        {INF, INF, INF, 0}
     };
 
     vector<vector<int>> result = floydWarshall(V, graph);
@@ -41,7 +41,7 @@ int main() {
     cout << "Shortest distances between all pairs of vertices:" << endl;
     for (int i = 0; i < V; i++) {
         for (int j = 0; j < V; j++) {
-            if (result[i][j] == 1e8) {
+            if (result[i][j] == INF) {
                 cout << "INF ";
             } else {
                 cout << result[i][j] << " ";

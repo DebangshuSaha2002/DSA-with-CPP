@@ -177,3 +177,23 @@ int main(){
 
     return 0;
 }
+
+
+
+void insertionSort(const char* arr[][2], int n) {
+    for (int i = 1; i < n; i++) {
+        const char* key[2];
+        key[0] = arr[i][0];
+        key[1] = arr[i][1];
+        int j = i - 1;
+
+        while (j >= 0 && strcmp(arr[j][1], key[1]) > 0) {
+            arr[j + 1][0] = arr[j][0];
+            arr[j + 1][1] = arr[j][1];
+            j--;
+        }
+
+        arr[j + 1][0] = key[0];
+        arr[j + 1][1] = key[1];
+    }
+}
