@@ -1,35 +1,46 @@
+//Matrix Chain Multiplication
 #include<iostream>
 #include<vector>
+#include<limits>
 using namespace std;
 
-int LCSlengthMem(string str1,string str2,int i,int j,vector<vector<int> > &dp){
-    if(i>=str1.length()){
+int MCMmem(int i,int j,vector<int> arr,vector<vector<int> >dp,int &count){
+    if(i==j){
         return 0;
     }
-
-    if(j>=str2.length()){ 
-        return 0;
-    }
-
     if(dp[i][j]!=-1){
         return dp[i][j];
     }
+    int mini=1e9;
+    for(int k=i;k<j;k++){
+        count++;
+        int steps=(arr[i-1]*arr[k]*arr[j]) + MCMmem(i,k,arr,dp,count) + MCMmem(k+1,j,arr,dp,count);
+        if(steps<mini){
+            mini=steps;
+        }
+    }
 
-    int ans=0;
-    if(str1[i]==str2[j]){
-        ans=1+LCSlengthMem(str1,str2,i+1,j+1,dp);
-    }
-    else{
-        ans=max(LCSlengthMem(str1,str2,i+1,j,dp),
-        LCSlengthMem(str1,str2,i,j+1,dp));
-    }
-    return dp[i][j]=ans;
+    return dp[i][j]=mini;
 }
 
+
 int main(){
-    string str1="0000110111100100001221000122001";
-    string str2="20000221222012211210";
-    vector<vector<int> > dp(str1.size(),vector<int>(str2.size(),-1));
-    cout<<"Length of the LCS is :"<<LCSlengthMem(str1,str2,0,0,dp)<<endl;
+    vector<int> arr;
+    arr.push_back(2);
+    arr.push_back(2);
+    arr.push_back(2);
+    arr.push_back(2);
+    arr.push_back(2);
+    // arr.push_back(2);
+    // arr.push_back(2);
+
+
+    int n=arr.size()-1;
+    
+    vector<vector<int> > dp(arr.size(),vector<int>(arr.size(),-1));
+    int count=0;
+    int ans=MCMmem(1,n,arr,dp,count);
+    cout<<ans<<endl;
+    cout<<"\nSteps:"<<count<<endl;
     return 0;
 }

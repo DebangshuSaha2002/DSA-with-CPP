@@ -26,17 +26,13 @@ int MCMmem(int i,int j,vector<int> arr,vector<vector<int> >dp,int &count){
 
 int main(){
     vector<int> arr;
-    arr.push_back(85);
-    arr.push_back(82);
-    arr.push_back(92);
-    arr.push_back(64);
-    arr.push_back(59);
-    arr.push_back(75);
-    arr.push_back(90);
-    arr.push_back(77);
-    arr.push_back(67);
-    arr.push_back(54);
-    arr.push_back(51);
+    arr.push_back(2);
+    arr.push_back(2);
+    arr.push_back(2);
+    arr.push_back(2);
+    arr.push_back(2);
+    // arr.push_back(2);
+    // arr.push_back(2);
 
 
     int n=arr.size()-1;

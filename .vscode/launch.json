@@ -1,0 +1,13 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "C/C++ Runner: Debug Session",
+      "type": "node",
+      "request": "launch",
+      "args": [],
+      "cwd": "/Users/debangshusaha/Documents/GitHub/DSA-with-CPP/Paypal",
+      "program": "/Users/debangshusaha/Documents/GitHub/DSA-with-CPP/Paypal/build/Debug/outDebug"
+    }
+  ]
+}
