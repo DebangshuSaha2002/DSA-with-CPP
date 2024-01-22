@@ -1,7 +1,8 @@
-#include<iostream>
-#include<vector>
-#include<map>
-#include<queue>
+// #include<iostream>
+// #include<vector>
+// #include<map>
+// #include<queue>
+#include<bits/stdc++.h>
 using namespace std;
 
 void solve(map<string,int> &m,vector<string> &balls){
