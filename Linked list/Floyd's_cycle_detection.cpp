@@ -61,7 +61,7 @@ node * remove_loop(node * &head)
 {
     cout<<"value of my head"<<head->data<<endl;
     node * loop_starts_at=startingofloop(head);
-    node * temp=loop_starts_at->next;;
+    node * temp=loop_starts_at;
     while(temp->next!=loop_starts_at)
     {
         temp=temp->next;
