@@ -13,7 +13,7 @@ int binarySearch(int arr[], int n, int element) {
     while (low <= high) {
         ++count;
         mid = low + (high - low) / 2;
-        if (element == arr[mid]) {
+        if (element =x= arr[mid]) {
             return mid;
         }
         if (element > arr[mid]) {
