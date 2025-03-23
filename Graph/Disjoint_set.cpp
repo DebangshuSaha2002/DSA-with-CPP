@@ -1,6 +1,7 @@
 //Disjoint Set Data Structure
 
 #include<iostream>
+#include<vector>
 using namespace std;
 
 class disjointSet{
