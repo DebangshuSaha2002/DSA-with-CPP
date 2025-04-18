@@ -4,13 +4,14 @@
             "name": "Mac",
             "includePath": [
                 "${workspaceFolder}/**",
+                "/opt/homebrew/include",
                 "/opt/homebrew/opt/gcc/include/c++/14",
-                "/System/Library/Frameworks",
-                "/Library/Frameworks"
+                "/opt/homebrew/opt/gcc/include",
+                "/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include"
             ],
-            "compilerPath": "/opt/homebrew/bin/g++-14",  // Adjust if necessary
-            "cStandard": "c17",
-            "cppStandard": "c++20",
+            "compilerPath": "/opt/homebrew/bin/g++-14",
+            "cStandard": "c11",
+            "cppStandard": "c++17",
             "intelliSenseMode": "macos-gcc-arm64"
         }
     ],
